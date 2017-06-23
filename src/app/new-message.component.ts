@@ -7,11 +7,11 @@ import { WebService } from './web.service';
     `
     <div class="form-group">
         <label for="owner">Owner:</label>
-        <input value = {{owner}} type="text" class="form-control" id="owner">
+        <input [(ngModel)]="message.owner" type="text" class="form-control" id="owner">
     </div>
     <div class="form-group">
         <label for="text">text:</label>
-        <input type="text" class="form-control" id="text">
+        <input type="text" [(ngModel)]="message.text" class="form-control" id="text">
          <button (click) = "post()" class="btn btn-primary" type="button">POST</button>
     </div>
     ` 
@@ -21,9 +21,12 @@ import { WebService } from './web.service';
         
     constructor(private webService: WebService) {}
         
-    owner = "test";
+    message = {
+        owner: "",
+        text: ""
+    }
     post() {
-        console.log(this.owner);
+        console.log(this.message);
     }
 
 }
