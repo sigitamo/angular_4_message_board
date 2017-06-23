@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
     selector: 'messages',
     template: 
     `
-    <div *ngFor="let message of webService.messages">
+    <div *ngFor="let message of messages">
     <h3 [routerLink]="['/messages', message.owner]" style="cursor: pointer">{{ message.owner}}</h3>
     <p> {{ message.text }} </p>
     </div>
@@ -14,10 +14,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 
  export class MessagesComponent {
+       messages;
        constructor(private webService: WebService, private route: ActivatedRoute) {}
 
        ngOnInit() {
            var name = (this.route.snapshot.params.name);
            this.webService.getMessages(name);
+           this.webService.messages.subscribe(messages => {
+               this.messages = messages;
+           })
        }
 }
