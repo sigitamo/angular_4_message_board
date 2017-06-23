@@ -6,8 +6,8 @@ import { WebService } from './web.service';
     template: 
     `
     <div *ngFor="let message of webService.messages">
-    {{ message.text }}
-    by: {{ message.owner}}
+    <h3 routerLink="/messages" style="cursor: pointer">{{ message.owner}}</h3>
+    <p> {{ message.text }} </p>
     </div>
     ` 
 })
