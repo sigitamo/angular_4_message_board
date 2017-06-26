@@ -7,15 +7,8 @@ import { NavComponent } from './nav.component';
   selector: 'home',
   template: 
   `
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-      
-        <new-message></new-message>
-        <messages></messages>
-      </div>
-    </div>
-  </div>
+    <new-message></new-message>
+    <messages></messages>
   `,
 })
 export class HomeComponent {}

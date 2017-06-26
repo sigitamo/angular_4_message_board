@@ -15,13 +15,14 @@ import { ActivatedRoute } from '@angular/router';
 
  export class MessagesComponent {
        messages;
-       constructor(private webService: WebService, private route: ActivatedRoute) {}
+       
+       constructor(private webService: WebService, private route: ActivatedRoute,) {}
 
        ngOnInit() {
-           var name = (this.route.snapshot.params.name);
+           var name = this.route.parent.params[name];
            this.webService.getMessages(name);
            this.webService.messages.subscribe(messages => {
                this.messages = messages;
            })
-       }
+       }   
 }
