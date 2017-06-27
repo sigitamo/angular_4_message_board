@@ -2,21 +2,23 @@
    <form [formGroup] ="form" (ngSubmit)="onSubmit()" >
     <div class="row">
         <div class="col-md-6 col-md-offset-3" style="margin: 10px">
-            <input placeholder="firstname" formControlName="firstName">
+            <input [ngClass]="{'error': isValid('firstName')}" placeholder="firstname" formControlName="firstName">
         </div>
         <div class="col-md-6 col-md-offset-3" style="margin: 10px">
-            <input placeholder="lastname" formControlName="lastName">
+            <input [ngClass]="{'error': isValid('lastName')}"placeholder="lastname" formControlName="lastName">
         </div>
         <div class="col-md-6 col-md-offset-3" style="margin: 10px">
-            <input type="email" placeholder="e-mail" formControlName="email">
+            <input [ngClass]="{'error': isValid('email')}" type="email" placeholder="e-mail" formControlName="email">
         </div>
         <div class="col-md-6 col-md-offset-3" style="margin: 10px">
-            <input type="password" placeholder="password" formControlName="password">
+            <input [ngClass]="{'error': isValid('password')}" type="password" placeholder="password" formControlName="password">
         </div>
         <div class="col-md-6 col-md-offset-3" style="margin: 10px">
-            <input type="password" placeholder="confirm password" formControlName="confirmPassword">
+            <input [ngClass]="{'error': isValid('confirmPassword')}" type="password" placeholder="confirm password" formControlName="confirmPassword">
         </div>
     </div>
+    <br>
+    <span *ngIf="form.errors?.mismatchedFields">Pasword do not match</span>
     <br>
     <button class="btn-primary">Register</button>
    </form>
