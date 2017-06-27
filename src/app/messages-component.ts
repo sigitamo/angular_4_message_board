@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
     selector: 'messages',
     template: 
     `
-    <div *ngFor="let message of messages">
+    <div *ngFor="let message of webService.messages | async">
     <h3 [routerLink]="['/messages', message.owner]" style="cursor: pointer">{{ message.owner}}</h3>
     <p> {{ message.text }} </p>
     </div>
@@ -21,8 +21,8 @@ import { ActivatedRoute } from '@angular/router';
        ngOnInit() {
            var name = this.route.parent.params[name];
            this.webService.getMessages(name);
-           this.webService.messages.subscribe(messages => {
-               this.messages = messages;
-           })
-       }   
+        //    this.webService.messages.subscribe(messages => {
+        //        this.messages = messages;
+        //    })
+        }   
 }
