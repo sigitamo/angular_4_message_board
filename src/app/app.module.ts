@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './nav.component';
 import { HomeComponent } from './home.component';
 import { RegisterComponent } from './register.component';
+import { AuthService } from './auth.service';
 
 var routes = [{
   path: '',
@@ -33,6 +34,6 @@ var routes = [{
   imports:      [ BrowserModule, HttpModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(routes) ],
   declarations: [ AppComponent, MessagesComponent, NewMessageComponent, NavComponent, HomeComponent, RegisterComponent ], 
   bootstrap:    [ AppComponent ],
-  providers:    [ WebService ]
+  providers:    [ WebService, AuthService ]
 })
 export class AppModule { }
