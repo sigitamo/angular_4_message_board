@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 
  export class MessagesComponent {
-       messages;
+    //    messages;
        
        constructor(private webService: WebService, private route: ActivatedRoute,) {}
 

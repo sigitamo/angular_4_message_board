@@ -1,0 +1,23 @@
+<div class="container">
+   <form [formGroup] ="form" (ngSubmit)="onSubmit()" >
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3" style="margin: 10px">
+            <input placeholder="firstname" formControlName="firstName">
+        </div>
+        <div class="col-md-6 col-md-offset-3" style="margin: 10px">
+            <input placeholder="lastname" formControlName="lastName">
+        </div>
+        <div class="col-md-6 col-md-offset-3" style="margin: 10px">
+            <input type="email" placeholder="e-mail" formControlName="email">
+        </div>
+        <div class="col-md-6 col-md-offset-3" style="margin: 10px">
+            <input type="password" placeholder="password" formControlName="password">
+        </div>
+        <div class="col-md-6 col-md-offset-3" style="margin: 10px">
+            <input type="password" placeholder="confirm password" formControlName="confirmPassword">
+        </div>
+    </div>
+    <br>
+    <button class="btn-primary">Register</button>
+   </form>
+</div>

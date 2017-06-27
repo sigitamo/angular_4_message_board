@@ -30,7 +30,8 @@ export class WebService {
     async postMessage(message) {
         try { 
             var response = await this.http.post(this.BASE_URL + '/messages', message).toPromise();
-            this.messages = response.json();
+            this.messageStore.push(response.json());
+            this.messageSubject.next(this.messageStore);
             
         } catch (error) {
             console.error("Unabble to post Messages");
