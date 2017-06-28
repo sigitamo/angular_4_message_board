@@ -15,7 +15,7 @@ export class WebService {
     messages = this.messageSubject.asObservable(); 
 
     constructor(private http: Http) {
-        this.getMessages();
+        this.getMessages(name);
     }
     getMessages(user) {
             user = (user) ? '/' + user: '';
@@ -23,7 +23,7 @@ export class WebService {
                 this.messageStore = response.json();
                 this.messageSubject.next(this.messageStore);
             }, error => {  
-            console.error("Unabble to get Messages");
+            console.error("Isijunk backenda");
             });
     }   
                
