@@ -1,30 +1,5 @@
-<!--<div class="container">
-   <form [formGroup] ="form" (ngSubmit)="onSubmit()" >
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3" style="margin: 10px">
-            <input [ngClass]="{'error': isValid('firstName')}" placeholder="firstname" formControlName="firstName">
-        </div>
-        <div class="col-md-6 col-md-offset-3" style="margin: 10px">
-            <input [ngClass]="{'error': isValid('lastName')}"placeholder="lastname" formControlName="lastName">
-        </div>
-        <div class="col-md-6 col-md-offset-3" style="margin: 10px">
-            <input [ngClass]="{'error': isValid('email')}" type="email" placeholder="e-mail" formControlName="email">
-        </div>
-        <div class="col-md-6 col-md-offset-3" style="margin: 10px">
-            <input [ngClass]="{'error': isValid('password')}" type="password" placeholder="password" formControlName="password">
-        </div>
-        <div class="col-md-6 col-md-offset-3" style="margin: 10px">
-            <input [ngClass]="{'error': isValid('confirmPassword')}" type="password" placeholder="confirm password" formControlName="confirmPassword">
-        </div>
-    </div>
-    <br>
-    <span *ngIf="form.errors?.mismatchedFields">Pasword do not match</span>
-    <br>
-    <button class="btn-primary">Register</button>
-   </form>
-</div>-->
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<!--<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label class="center-block">Name:
       <input [ngClass]="{'error': isValid('firstName')}"class="form-control" formControlName="firstName">
@@ -54,5 +29,30 @@
     <span *ngIf="form.errors?.mismatchedFields">Pasword do not match</span>
     <br>
     <button class="btn-primary">Register</button>
-</form>
+ 
+</form>-->
+
+
+<md-card>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <md-input-container>
+        <input [ngClass]="{'error': isValid('firstName')}" style="width:350px" mdInput placeholder="FirstName" formControlName="firstName">
+      </md-input-container>
+      <md-input-container>
+        <input [ngClass]="{'error': isValid('lastName')}" style="width:350px" mdInput placeholder="LastName" formControlName="lastName">
+      </md-input-container>
+      <md-input-container>
+        <input [ngClass]="{'error': isValid('email')}" style="width:350px" mdInput placeholder="Email"type="email" formControlName="email">
+      </md-input-container>
+      <md-input-container>
+        <input [ngClass]="{'error': isValid('password')}" style="width:350px" mdInput placeholder="Password" type="password" formControlName="password">
+      </md-input-container>
+      <md-input-container>
+        <input [ngClass]="{'error': isValid('confirmPassword')}" style="width:350px" mdInput placeholder="ConfirmPassword" type="password" formControlName="confirmPassword">
+      </md-input-container>
+      <span *ngIf="form.errors?.mismatchedFields">Passwords do not match</span>
+      <br>
+      <button md-raised-button color="primary">REGISTER</button>
+    </form>
+</md-card>
 

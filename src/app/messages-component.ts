@@ -7,9 +7,11 @@ import { ActivatedRoute } from '@angular/router';
     template: 
     `
     <div *ngFor="let message of webService.messages | async">
-    <h3 [routerLink]="['/messages', message.owner]" style="cursor: pointer">{{ message.owner}}</h3>
-    <p> {{ message.text }} </p>
-    </div>
+        <md-card class="card">
+            <md-card-title [routerLink]="['/messages', message.owner]" style="cursor: pointer">{{ message.owner}} </md-card-title>
+            <md-card-content>{{ message.text }} </md-card-content>
+        </md-card>
+    </div> 
     ` 
 })
 
@@ -19,10 +21,12 @@ import { ActivatedRoute } from '@angular/router';
        constructor(private webService: WebService, private route: ActivatedRoute,) {}
 
        ngOnInit() {
-           var name = this.route.parent.params[name];
+           console.log(this.route.snapshot.params.name);
+           var name = this.route.snapshot.params.name;
+        //    var name = this.route.parent.params[name];
            this.webService.getMessages(name);
         //    this.webService.messages.subscribe(messages => {
         //        this.messages = messages;
         //    })
         }   
-}
+} 

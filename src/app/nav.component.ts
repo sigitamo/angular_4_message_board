@@ -4,16 +4,20 @@ import { AuthService } from './auth.service';
 @Component ({
     selector: 'nav',
     template: `
-     <div class="nav-bar" style="background-color: blue; padding: 10px;">
-        <button routerLink="/" class=btn-primary>Message BOARD</button>
-        <button routerLink="/messages" class=btn-primary>Messages</button>
-        <span style="flex:1 1 auto"></span>
-        <button routerLink="/register" class=btn-primary>Register</button>
-        <button *ngIf="auth.isAuthenticated" routerLink="/register" class=btn-primary>Welcome {{auth.name }}</button> 
-    </div>
+    <md-toolbar color="primary">
+        <button md-button routerLink="/">Message BOARD</button>
+        <button md-button routerLink="/messages">Messages</button>
+        
+        <span style="flex: 1 1 auto"></span>
+        
+        <button md-button *ngIf="!auth.isAuthenticated" routerLink="/login">LOGIN</button>
+        <button md-button *ngIf="!auth.isAuthenticated" routerLink="/register">Register</button>
+        <button md-button *ngIf="auth.isAuthenticated" routerLink="/">Welcome {{auth.name }}</button> 
+        <button md-button *ngIf="auth.isAuthenticated" (click)="auth.logout()">LOGOUT {{auth.name }}</button> 
+    </md-toolbar>
     ` 
 })
-
+ 
  export class NavComponent {
        constructor(private auth: AuthService) {}
 }

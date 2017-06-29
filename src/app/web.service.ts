@@ -2,6 +2,7 @@ import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import { Subject } from 'rxjs/Rx';
+import { MdSnackBar } from '@angular/material';
 
 
 @Injectable()
@@ -14,8 +15,8 @@ export class WebService {
 
     messages = this.messageSubject.asObservable(); 
 
-    constructor(private http: Http) {
-        this.getMessages(name);
+    constructor(private http: Http, private sb: MdSnackBar) {
+        this.getMessages();
     }
     getMessages(user) {
             user = (user) ? '/' + user: '';
@@ -23,7 +24,7 @@ export class WebService {
                 this.messageStore = response.json();
                 this.messageSubject.next(this.messageStore);
             }, error => {  
-            console.error("Isijunk backenda");
+                this.handleError("Isijunk BACKEND"); 
             });
     }   
                
@@ -34,8 +35,11 @@ export class WebService {
             this.messageSubject.next(this.messageStore);
             
         } catch (error) {
-            console.error("Unabble to post Messages");
+            this.handleError("nera galimybes POST'inti zinuciu. Isijunk BACKEND"); 
         } 
-       
+    }
+    private handleError(error) {
+        console.error(error);
+        this.sb.open(error, 'close', {duration: 2000});
     }
 }

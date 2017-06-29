@@ -8,15 +8,15 @@ import { AuthService } from './auth.service';
   templateUrl: 'register.component.html',
   styles: [`
     .error {
-        background-color: red;
+        background-color: #fff0f0;
     }
     `]
-})
+}) 
 export class RegisterComponent {
     form;
 
     constructor(private fb: FormBuilder, private auth: AuthService ){
-        this.form = fb.group({
+        this.form = fb.group({ 
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             email: ['',  [Validators.required, emailValid()]],
@@ -25,7 +25,8 @@ export class RegisterComponent {
         }, { validator: matchingFields('password', 'confirmPassword')})
     } 
     onSubmit() {
-        // console.log(this.form.errors);
+        // console.log(this.form.valid); //patikriti ar formoje irasyta info
+        // console.log(this.form.errors); //rikalingas patikrinti ar sutampa slaptazodis su patvirtinimu
         this.auth.register(this.form.value); 
          
     }

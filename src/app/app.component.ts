@@ -5,14 +5,8 @@ import { NavComponent } from './nav.component';
   selector: 'my-app',
   template: 
   `
-  <nav></nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
-  </div>
+    <nav></nav>
+    <router-outlet></router-outlet>
   `,
 })
 export class AppComponent {}

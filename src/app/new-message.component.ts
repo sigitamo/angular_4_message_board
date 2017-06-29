@@ -5,15 +5,19 @@ import { WebService } from './web.service';
     selector: 'new-message',
     template: 
     `
-    <div class="form-group">
-        <label for="owner">Owner:</label>
-        <input [(ngModel)]="message.owner" type="text" class="form-control" id="owner">
-    </div>
-    <div class="form-group">
-        <label for="text">text:</label>
-        <input type="text" [(ngModel)]="message.text" class="form-control" id="text">
-         <button (click) = "post()" class="btn btn-primary" type="button">POST</button>
-    </div>
+    <md-card class="card">
+        <md-card-content>
+            <md-input-container>
+                <input [(ngModel)]="message.owner" mdInput placeholder="Name"> 
+            </md-input-container>
+            <md-input-container>
+                <textarea [(ngModel)]="message.text" mdInput placeholder="Message"></textarea>
+            </md-input-container>
+            <md-card-actions>
+                <button (click) = "post()" md-button color="primary">POST</button>
+            </md-card-actions>
+        </md-card-content>
+    </md-card>
     ` 
 })
 
